@@ -31,6 +31,9 @@ background:
 
 # Analytics and webmaster tools stuff goes here
 google_analytics: UA-79243751-1  
+google_ads: 
+  client: ca-pub-1789797875470932
+  slot: 4840782856
 google_verify:      
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:         
