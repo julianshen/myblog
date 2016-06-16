@@ -1,0 +1,98 @@
+title:            Le murmure de Julian
+description:      朱隸安貓囈語錄
+disqus_shortname: julianshen 
+reading_time:     true
+words_per_minute: 200
+logo: avatar.png
+# Your site's domain goes here (eg: https://mmistakes.github.io, http://yourdomain.com, etc)
+# When testing locally leave blank or use http://localhost:4000
+url: http://blog.jln.co
+
+# Owner/author information
+owner:
+  name:           Julian Shen
+  avatar:         avatar.png
+  bio:            "software deverloper"
+  email:          julianshen22@gmail.com
+  # Social networking links used in footer. Update and remove as you like.
+  twitter: jlnshen       
+  facebook: julianshen      
+  github: julianshen        
+  stackexchange: 
+  linkedin: julianshen      
+  instagram: julianshen     
+  flickr: julianshen
+  tumblr:         
+  # google plus id, include the '+', eg +mmistakes
+  google_plus:
+
+# Background image to be tiled on all pages
+background: 
+
+# Analytics and webmaster tools stuff goes here
+google_analytics: UA-79243751-1  
+google_verify:      
+# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
+bing_verify:         
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:    Asia/Taipei
+future:      true
+highlighter: rouge
+markdown:    kramdown
+gems:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-gist
+  - jekyll-feed
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink:   /:categories/:title/
+
+# Amount of post to show on home page
+paginate: 5
+
+kramdown:
+  input: GFM
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+
+include: 
+  - .htaccess
+exclude: 
+  - "*.less"
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - CHANGELOG
+  - Capfile
+  - Gemfile
+  - Gruntfile.js
+  - LICENSE
+  - README
+  - Rakefile
+  - config
+  - gulpfile.js
+  - lib
+  - log
+  - node_modules
+  - package.json
+  - spec
+  - tmp
+imagemap:
+  golang: gopher.jpg
+  swift: swift-logo-hero.jpg
+  ios development: ide_2x.png
+  ios: ide_2x.png
+  android: androidlogo1.jpg
+  android development: androidlogo1.jpg
+  nodejs: nodejs.png
