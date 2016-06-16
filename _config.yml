@@ -34,7 +34,7 @@ google_analytics: UA-79243751-1
 google_ads: 
   client: ca-pub-1789797875470932
   slot: 4840782856
-google_verify:      
+google_verify: Fwa4TQMXvroZpNT7rrwHzdf-rWBe1RDuTu75Enx_DWA     
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:         
 
