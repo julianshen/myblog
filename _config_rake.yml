@@ -5,3 +5,5 @@ page:
   template: _page.txt
   extension: md
 editor: atom
+git:
+  branch: master

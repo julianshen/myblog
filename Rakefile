@@ -197,9 +197,11 @@ task :deploy, :message do |t, args|
     raise "Please add a branch."
   else
     Rake::Task[:build].invoke
-    execute("git add .")
-    execute("git commit -m \"#{message}\"")
-    execute("git push origin #{branch}")
+    Dir.chdir('_site') do
+      execute("git add .")
+      execute("git commit -m \"#{message}\"")
+      execute("git push origin #{branch}")
+    end
   end
 end
 
