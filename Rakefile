@@ -202,6 +202,10 @@ task :deploy, :message do |t, args|
       execute("git commit -m \"#{message}\"")
       execute("git push origin #{branch}")
     end
+    # also push original copy
+    execute("git add .")
+    execute("git commit -m \"#{message}\"")
+    execute("git push origin #{branch}")
   end
 end
 
