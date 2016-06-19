@@ -30,6 +30,7 @@ tags:
 
 #### 使用方法
 這個工具是用Go寫的, 所以使用之前需要先安裝go
+
 ##### 安裝
 ```go get julianshen/mongoproxy/mp```
 
@@ -61,6 +62,7 @@ struct MsgHeader {
 ```
 
 對應golang, 我定義成這樣:
+
 ```go
 type MsgHeader struct {
 	MessageLength int32 // total message size, including this
