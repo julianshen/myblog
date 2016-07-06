@@ -87,7 +87,14 @@ module Jekyll
       end
       
       img_url = htmled.match(/<img.*\ssrc=[\"\']([\S.]+)[\"\']/i)
-      return img_url[1] if img_url != nil 
+      if img_url != nil 
+        iurl = img_url[1]
+        if iurl.match(/^http/)
+          return iurl
+        else
+          return @site.config['url'] + iurl
+        end
+      end
 
       tags = page.data['tags']
       imagemap = @site.config['imagemap']
@@ -97,7 +104,7 @@ module Jekyll
             url = imagemap[t.downcase]
 
             if !url.match(/^http/)
-              url = '/images/' + url
+              url = @site.config['url'] + '/images/' + url
             end
             return url
           end
