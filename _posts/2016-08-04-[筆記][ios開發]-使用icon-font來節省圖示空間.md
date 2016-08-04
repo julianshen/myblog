@@ -48,7 +48,7 @@ tags:
 
 這個是一個陣列(Array), 它的內容就是你要加入的字型檔檔名, 把你要加的每一個都列進去
 
-![Info.plist](images/posts/p1608043.png)
+![Info.plist](/images/posts/p1608043.png)
 
 接著, 在Interface Builder裡你所要使用icon font的地方, 比如說UILabel設定你的字型, 原本的字型是設定為*"System"*, 把它改成*"Custom"*, 並選定你所需要的字型名稱, 例如FontAwesome, 要注意的是, 字型名稱不一定等同於你字型檔的名字:
 
