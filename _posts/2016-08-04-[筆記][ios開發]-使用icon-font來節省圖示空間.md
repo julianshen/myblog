@@ -38,11 +38,11 @@ tags:
 
 自己手動加的好處就是, Interface Builder上就可以套用, 直接就可以看到結果, 但就是稍微繁瑣了一點
 
-![Interface Builder直接看結果](images/posts/p1608041.png)
+![Interface Builder直接看結果](/images/posts/p1608041.png)
 
 首先, 要把字型檔拖入你的Project裡面:
 
-![ttf files in project](images/posts/p1608042.png)
+![ttf files in project](/images/posts/p1608042.png)
 
 接著打開Info.plist, 加上一個新的項目叫做*"Fonts provided by application"*
 
@@ -52,9 +52,9 @@ tags:
 
 接著, 在Interface Builder裡你所要使用icon font的地方, 比如說UILabel設定你的字型, 原本的字型是設定為*"System"*, 把它改成*"Custom"*, 並選定你所需要的字型名稱, 例如FontAwesome, 要注意的是, 字型名稱不一定等同於你字型檔的名字:
 
-![Interface builder](images/posts/p1608044.png)
+![Interface builder](/images/posts/p1608044.png)
 
-![Interface builder](images/posts/p1608045.png)
+![Interface builder](/images/posts/p1608045.png)
 
 接下來在**Text**的部分輸入這個圖示的代表的Unicode字元就好, 不是Unicode碼, 而是那個字元本身, 這挺不方便的, 可能用copy paste的才有辦法, 這是這個方法最大的缺點
 
@@ -72,13 +72,13 @@ Ligatures是一個字型上蠻方便的特色的, 關於Ligatures可以先看一
 
 我們先來看看, 如果使用沒有而Ligatures的FontAwesome, 你在Text打上**"Contacts"**會是怎樣一個情形?
 
-![Ligatures1](images/posts/p1608046.png)
+![Ligatures1](/images/posts/p1608046.png)
 
 它會直接一字不漏的呈現**"Contacts"**,這還是因為FontAwesome有包含原本英數字字型在裡面, 有些其他的自行更慘, 根本就是一片白
 
 讓我們再看看用[Google material icons](https://design.google.com/icons/)的字型,同樣的東西會有什麼結果
 
-![Ligatures2](images/posts/p1608047.png)
+![Ligatures2](/images/posts/p1608047.png)
 
 因為這個字型有支援Ligatures, 所以在這邊contacts就會被直接代換成它對應的圖示了, 我們就不用寄那種完全看不懂的unicode碼了
 
