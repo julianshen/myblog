@@ -99,3 +99,5 @@ imagemap:
   android: androidlogo1.jpg
   android development: androidlogo1.jpg
   nodejs: nodejs.png
+mermaid:
+  src: 'https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.js'
