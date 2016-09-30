@@ -4,6 +4,6 @@ post:
 page:
   template: _page.txt
   extension: md
-editor: atom
+editor: code
 git:
   branch: master
