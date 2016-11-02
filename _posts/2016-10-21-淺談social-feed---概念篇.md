@@ -14,7 +14,7 @@ tags:
 這系列打算由三篇來構成, 除了這篇概念篇外, 另外還會有兩篇比較細節一點的內容, 分為client和server的部分(之後寫完會再更新鏈結):
 
 1. [淺談Social Feed - 多服務彙整式的social feed (Client)](/淺談social-feed-多服務彙整式的social-feed-client)
-1. 淺談Social Feed - 後端架構實作 (Server)
+1. [淺談Social Feed - 後端架構實作 (Server)](/淺談social-feed-後端架構實作-server/)
 
 ## 什麼是Social feed? ##
 
