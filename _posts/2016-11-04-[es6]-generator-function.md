@@ -34,7 +34,7 @@ console.log(gen.next().value); // undefined
 我的感覺是比較像一種有帶state的function之類的
 
 有什麼用途? 從上面的例子, 當然最直覺想到的是ID產生器或是計數器之類的東西, 網路上應該可以找到一些不同的用法, 比如說搭配Promise, 有興趣可以自己找找,
-是不只可以用在產生器, 拿我早上interview被問到的實作strstr, 不是很難的東西, 我原本拿go寫出了的小槌, 而且也只能找第一個發生的字串, 後來用generator改了這版本:
+是不只可以用在產生器, 拿我早上interview被問到的實作strstr, 不是很難的東西, 我原本拿go寫,出了點小槌, 而且也只能找第一個發生的字串, 後來用generator改了這版本:
 
 {% gist julianshen/6c06ccfa0942829ea24973778a96ab64 %}
 
