@@ -488,3 +488,7 @@ compile 'com.squareup.retrofit2:adapter-rxjava:latest.version'
 另外非官方的, 比如說你如果喜歡用Facebook的[Bolts](https://github.com/BoltsFramework), 也有[retrofit-bolts-call-adapter](https://github.com/zeng1990java/retrofit-bolts-call-adapter)
 
 那如果我要寫自己的Call Adapter呢?討厭啦, 當然可以, 你想怎樣都可以啦! XD
+
+## 補充2 - Interceptor
+
+除了可以改造Request外, 這邊也可以傳自己假造的Response回去喔, 這種可以用在某些情境, 比如說沒網路狀況下, 你也想傳自己假造的預設資料
