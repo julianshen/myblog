@@ -1,5 +1,5 @@
 ---
-title: "[Java] 關於retofit的一些奇技"
+title: "[Java] 關於retrofit的一些奇技"
 date: 2017-03-12 12:07:35 +0800
 layout: post
 tags: 
