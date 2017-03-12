@@ -407,3 +407,84 @@ behavior.setFailurePercent(3);
 ```
 
 這個可以用來測試可能的網路情況是否會帶來其他的邊際效應
+
+## 補充 - CallAdapter
+
+Retrofit 1時, Interface裡面定義的method回傳都是直接是要回傳的型態如:
+
+```java
+public interface GitHub { 
+	@GET("/repos/{owner}/{repo}/contributors") 
+	List<Contributor> contributors(
+		@Path("owner") String owner,
+		@Path("repo") String repo);
+} 
+```
+
+在Retorfit 2之後, 卻已經變成是:
+
+```java
+public interface GitHub { 
+	@GET("/repos/{owner}/{repo}/contributors") 
+	Call<List<Contributor>> contributors(
+		@Path("owner") String owner,
+		@Path("repo") String repo);
+} 
+```
+
+亦即就是, 原本在Retrofit 1採用的是Synchronous call, 就是你自己去管thread, 前景背景, 這些麻煩事, 但在2版後, 這部分就改了, 預設是`Call`這個Class, Call這個Interface的原型是這樣的
+
+```java
+public interface Call<T> extends Cloneable {
+  Response<T> execute() throws IOException;
+  void enqueue(Callback<T> callback);
+  boolean isExecuted(); 
+  void cancel(); 
+  boolean isCanceled(); 
+  Call<T> clone(); 
+  Request request(); 
+} 
+```
+
+你拿到Call物件後, 其實並還沒透過HTTP去抓取東西, 而是要透過`execute()`或是`enqueue()`才會真的去發request, 這兩者本質上是不同的, `execute()`是一個Synchronous call, 也就是執行到有結果才會結束, 會卡程式執行, 而`enqueue()`則是Asynchronous call, HTTP的部份是在背景執行, 結束後會call callback
+
+如果需要中斷(碰到下載很久的內容), 可以呼叫`cancel()`
+
+對這部份內部實作有興趣的話可以參考[OkHttpCall](https://github.com/square/retrofit/blob/288c49237192afb06d8b87b55849109322ecef2a/retrofit/src/main/java/retrofit2/OkHttpCall.java), 其實它是直接利用了OkHttp那邊的實作
+
+當然, 誠如前面說的(有說過嗎?), Retrofit是一個高度模組化的套件, 因此這部分也可以透過所謂的Call Adapter換成你熟悉的進程管理(應該叫這樣嗎?不知道該怎稱呼), 如[RxJava](https://github.com/ReactiveX/RxJava)
+
+例如:
+
+```java
+Retrofit retrofit = new Retrofit.Builder()
+        .baseUrl("http://example.com") 
+        .addCallAdapterFactory(RxJavaCallAdapterFactory.create()) 
+        .build();
+```
+
+或是:
+
+```java
+Retrofit retrofit = new Retrofit.Builder()
+        .baseUrl("http://example.com") 
+        .addCallAdapterFactory(RxJavaCallAdapterFactory.createWithScheduler(io())) 
+        .build();
+```
+
+當然要記得加入相關的Dependency:
+
+```groovy
+compile 'com.squareup.retrofit2:adapter-rxjava:latest.version'
+```
+
+官方支援的Call adapter除了原本的"Call"外還有:
+
+* RxJava [https://github.com/square/retrofit/tree/master/retrofit-adapters/rxjava](https://github.com/square/retrofit/tree/master/retrofit-adapters/rxjava)
+* RxJava2 [https://github.com/square/retrofit/tree/master/retrofit-adapters/rxjava2](https://github.com/square/retrofit/tree/master/retrofit-adapters/rxjava2)
+* Guava [https://github.com/square/retrofit/tree/master/retrofit-adapters/guava](https://github.com/square/retrofit/tree/master/retrofit-adapters/guava)
+* Java8 [https://github.com/square/retrofit/tree/master/retrofit-adapters/java8](https://github.com/square/retrofit/tree/master/retrofit-adapters/java8)
+
+另外非官方的, 比如說你如果喜歡用Facebook的[Bolts](https://github.com/BoltsFramework), 也有[retrofit-bolts-call-adapter](https://github.com/zeng1990java/retrofit-bolts-call-adapter)
+
+那如果我要寫自己的Call Adapter呢?討厭啦, 當然可以, 你想怎樣都可以啦! XD
